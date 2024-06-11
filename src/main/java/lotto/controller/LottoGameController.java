@@ -14,7 +14,7 @@ public class LottoGameController {
     private final ResultView resultView = new ResultView();
 
     public void run() {
-        double lottoPurchaseAmt = getLottoPurchaseAmt();
+        double lottoPurchaseAmt = getInputAmount();
         int manualLottoCount = getManualLottoCount();
         List<Lotto> manualLottos = getManualLottos(manualLottoCount);
         LottoGame lottoGame = new LottoGame(lottoPurchaseAmt, manualLottoCount);
@@ -37,7 +37,7 @@ public class LottoGameController {
         }
     }
 
-    private Double getLottoPurchaseAmt() {
+    private Double getInputAmount() {
         return inputView.getLottoPurchaseAmt();
     }
 
@@ -62,7 +62,7 @@ public class LottoGameController {
 
     private List<Integer> getManualLottoNumbers() {
         String manualNumbers = inputView.getManualLottoNumbers();
-        List<String> numberStr = seperateComma(manualNumbers);
+        List<String> numberStr = seperatecomma(manualNumbers);
         return numberStr.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
@@ -70,13 +70,13 @@ public class LottoGameController {
 
     private List<Integer> getWinnerNumber() {
         String winnerNumber = inputView.getWinnerNumber();
-        List<String> winners = seperateComma(winnerNumber);
+        List<String> winners = seperatecomma(winnerNumber);
         return winners.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
     }
-    private static List<String> seperateComma(String input) {
+    private static List<String> seperatecomma(String input) {
         return Arrays.asList(input.trim().replaceAll("\\s", "").split(","));
     }
     private int getBonusWinnerNumber() {
