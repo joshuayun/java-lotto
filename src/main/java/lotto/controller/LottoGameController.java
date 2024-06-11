@@ -26,15 +26,14 @@ public class LottoGameController {
         List<Integer> winnerNumber = getWinnerNumber();
         int bonusNumber = getBonusWinnerNumber();
 
-        WinnerLotto winnerLotto = new WinnerLotto(winnerNumber, bonusNumber);
-        extractWinners(lottos, winnerLotto);
+        extractWinners(lottos, winnerNumber, bonusNumber);
         resultView.printStatics(lottoPurchaseAmt);
     }
 
-    private static void extractWinners(List<Lotto> lottos, WinnerLotto winnerLotto) {
+    private static void extractWinners(List<Lotto> lottos, List<Integer> winningNumbers, int bonusNumber) {
         for (Lotto lotto : lottos) {
-            Winning winning = new Winning(winnerLotto, lotto);
-            winning.compareNumbers();
+            WinningLotto winningLotto = new WinningLotto(winningNumbers, bonusNumber, lotto);
+            winningLotto.compareNumbers();
         }
     }
 

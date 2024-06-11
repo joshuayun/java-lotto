@@ -4,27 +4,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Winning {
+public class WinningLotto {
 
-    private final WinnerLotto winnerLotto;
-
+    private final List<Integer> winningNumbers;
+    private final int bonusNumber;
     private final Lotto lotto;
 
-    public Winning(WinnerLotto winnerLotto, Lotto lotto) {
-        this.winnerLotto = winnerLotto;
+    public WinningLotto(List<Integer> winningNumbers, int bonusNumber, Lotto lotto) {
+        this.winningNumbers = winningNumbers;
+        this.bonusNumber = bonusNumber;
         this.lotto = lotto;
     }
     public void compareNumbers() {
         List<Integer> userNumbers = lotto.getLottoNumber();
-        List<Integer> winningNumbers = winnerLotto.getWinnerNumbers();
-
-        int bonusNumber = winnerLotto.getBonusNumber();
         int matchCount = getMatchCount(userNumbers, winningNumbers);
-        boolean bonusMatch = userNumbers.contains(bonusNumber);
+        boolean bonusMatch = lotto.contains(bonusNumber);
         determineResult(matchCount, bonusMatch);
     }
 
-    private static int getMatchCount(List<Integer> userNumbers, List<Integer> winningNumbers) {
+    private int getMatchCount(List<Integer> userNumbers, List<Integer> winningNumbers) {
         return (int) userNumbers.stream()
                 .filter(winningNumbers::contains)
                 .count();
