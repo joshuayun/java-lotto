@@ -14,8 +14,6 @@ public class Winning {
         this.winnerLotto = winnerLotto;
         this.lotto = lotto;
     }
-
-    // 당첨 번호와 사용자 번호를 비교하는 메서드
     public void compareNumbers() {
         int matchCount = 0;
         boolean bonusMatch = false;
