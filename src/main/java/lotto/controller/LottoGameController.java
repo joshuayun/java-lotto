@@ -49,8 +49,8 @@ public class LottoGameController {
         inputView.getManualLottoNumberPrint();
         List<Lotto> manualLottos = new ArrayList<>();
         for (int i = 0; i < manualLottoCount; i++) {
-            List<Integer> mannualLottoNumbers = getManualLottoNumbers();
-            generateManualLotto(mannualLottoNumbers, manualLottos);
+            List<Integer> manualLottoNumbers = getManualLottoNumbers();
+            generateManualLotto(manualLottoNumbers, manualLottos);
         }
         return manualLottos;
     }
