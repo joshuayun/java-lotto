@@ -1,8 +1,6 @@
 package lotto.model;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class WinningLotto {
 
@@ -16,16 +14,16 @@ public class WinningLotto {
     public void resultPrize(Lotto lotto) {
         int matchCount = lotto.matchedCount(winningNumbers);
         boolean bonusMatch = lotto.contains(bonusNumber);
-        determineResult(matchCount, bonusMatch);
+        addLottoResultCount(matchCount, bonusMatch);
     }
 
-    private void determineResult(int matchCount, boolean bonusMatch) {
+    private void addLottoResultCount(int matchCount, boolean bonusMatch) {
         String resultKey = matchCount + "," + bonusMatch;
-        LottoResult lottoResult = Arrays.stream(
-                LottoResult.values())
-                    .filter(lo -> lo.getResultKey().equals(resultKey))
-                    .collect(Collectors.toList()).get(0);
-        lottoResult.plusCount();
+        for (LottoResult lottoResult : LottoResult.values()) {
+            if (lottoResult.getResultKey().equals(resultKey)) {
+                lottoResult.addCount();
+            }
+        }
     }
 
 }

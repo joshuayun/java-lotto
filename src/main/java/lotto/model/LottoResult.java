@@ -29,7 +29,7 @@ public enum LottoResult {
     public String getResultKey() {
         return resultKey;
     }
-    public void plusCount() {
+    public void addCount() {
         this.count++;
     }
     public int getCount() {
