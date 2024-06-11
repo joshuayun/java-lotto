@@ -21,6 +21,11 @@ public class LottoNumber {
         this.lottoNumber = generateLottoNumbers();
     }
 
+    public LottoNumber(List<Integer> lottoNumber) {
+        this.lottoNumber = lottoNumber;
+    }
+
+
     public List<Integer> getLottoNumber() {
         return lottoNumber;
     }

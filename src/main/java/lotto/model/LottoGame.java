@@ -6,23 +6,27 @@ import java.util.List;
 public class LottoGame {
     private static final int LOTTO_PRICE = 1000;
 
-    private final int count;
+    private final int autoCount;
 
-    public LottoGame(Double lottoPurchaseAmt) {
-        count = (int) (lottoPurchaseAmt / LOTTO_PRICE);
+    public LottoGame(Double lottoPurchaseAmt, int manualCount) {
+        autoCount = (int) (lottoPurchaseAmt / LOTTO_PRICE) - manualCount;
     }
 
-    public List<Lotto> generateLotto() {
-        List<Lotto> lottos = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            Lotto lotto = new Lotto(new LottoNumber());
-            lottos.add(lotto);
-        }
+    public List<Lotto> generateLotto(List<Lotto> manualLotto) {
+        List<Lotto> lottos = new ArrayList<>(manualLotto);
+        generateAutoLottos(lottos);
         return lottos;
     }
 
-    public int getCount() {
-        return count;
+    private void generateAutoLottos(List<Lotto> lottos) {
+        for (int i = 0; i < autoCount; i++) {
+            Lotto lotto = new Lotto(new LottoNumber());
+            lottos.add(lotto);
+        }
+    }
+
+    public int getAutoCount() {
+        return autoCount;
     }
 
 
