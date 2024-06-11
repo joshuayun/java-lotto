@@ -13,8 +13,6 @@ public class LottoGameController {
     private final InputView inputView = new InputView();
     private final ResultView resultView = new ResultView();
 
-
-
     public void run() {
         double lottoPurchaseAmt = getLottoPurchaseAmt();
         int manualLottoCount = getManualLottoCount();
@@ -32,8 +30,6 @@ public class LottoGameController {
         extractWinners(lottos, winnerLotto);
         resultView.printStatics(lottoPurchaseAmt);
     }
-
-
 
     private static void extractWinners(List<Lotto> lottos, WinnerLotto winnerLotto) {
         for (Lotto lotto : lottos) {
