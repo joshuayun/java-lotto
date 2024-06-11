@@ -33,8 +33,6 @@ public class LottoGameController {
         resultView.printStatics(lottoPurchaseAmt);
     }
 
-
-
     private static void extractWinners(List<Lotto> lottos, WinnerLotto winnerLotto) {
         for (Lotto lotto : lottos) {
             Winning winning = new Winning(winnerLotto, lotto);
