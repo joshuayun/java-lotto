@@ -13,8 +13,6 @@ public class LottoGameController {
     private final InputView inputView = new InputView();
     private final ResultView resultView = new ResultView();
 
-
-
     public void run() {
         double lottoPurchaseAmt = getLottoPurchaseAmt();
         int manualLottoCount = getManualLottoCount();
