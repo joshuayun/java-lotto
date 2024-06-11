@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,18 +7,18 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LottoGeneratorTest {
+class LottoNumberTest {
     @Test
     void checkLottoSize() {
-        LottoGenerator lottoGenerator = new LottoGenerator();
-        int actual = lottoGenerator.getLotto().size();
+        LottoNumber lottoNumber = new LottoNumber();
+        int actual = lottoNumber.getLottoNumber().size();
         assertThat(actual).isEqualTo(6);
     }
 
     @Test
     void checkLottoNumberRange() {
-        LottoGenerator lottoGenerator = new LottoGenerator();
-        List<Integer> lottoDigits =  lottoGenerator.getLotto();
+        LottoNumber lottoNumber = new LottoNumber();
+        List<Integer> lottoDigits =  lottoNumber.getLottoNumber();
         boolean actual = checkRangeNumber(lottoDigits);
         assertThat(actual).isTrue();
     }
@@ -34,8 +34,8 @@ class LottoGeneratorTest {
 
     @Test
     void checkLottoDuplicateNumber() {
-        LottoGenerator lottoGenerator = new LottoGenerator();
-        List<Integer> lottoDigits =  lottoGenerator.getLotto();
+        LottoNumber lottoNumber = new LottoNumber();
+        List<Integer> lottoDigits =  lottoNumber.getLottoNumber();
         //중복제거를 위한 HashSet
         int actual = new HashSet<>(lottoDigits).size();
         assertThat(actual).isEqualTo(lottoDigits.size());

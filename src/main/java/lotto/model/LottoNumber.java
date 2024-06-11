@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class LottoGenerator {
+public class LottoNumber {
     private static final int MINIMUM_LOTTO_NUMBER = 1;
     private static final int MAXIMUM_LOTTO_NUMBER = 45;
     private static final List<Integer> LOTTO_RANGE = IntStream.rangeClosed(MINIMUM_LOTTO_NUMBER, MAXIMUM_LOTTO_NUMBER)
@@ -15,14 +15,14 @@ public class LottoGenerator {
 
     private static final int MAXIMIM_LOTTO_DIGIT = 6;
 
-    private final List<Integer> lotto;
+    private final List<Integer> lottoNumber;
 
-    public LottoGenerator() {
-        this.lotto = generateLottoNumbers();
+    public LottoNumber() {
+        this.lottoNumber = generateLottoNumbers();
     }
 
-    public List<Integer> getLotto() {
-        return lotto;
+    public List<Integer> getLottoNumber() {
+        return lottoNumber;
     }
 
     public static List<Integer> generateLottoNumbers() {
