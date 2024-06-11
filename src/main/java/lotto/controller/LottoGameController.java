@@ -18,7 +18,7 @@ public class LottoGameController {
     public void run() {
         double lottoPurchaseAmt = getLottoPurchaseAmt();
         int manualLottoCount = getManualLottoCount();
-        List<Lotto> manualLottos = getManualLottoNumber(manualLottoCount);
+        List<Lotto> manualLottos = getManualLottos(manualLottoCount);
         LottoGame lottoGame = new LottoGame(lottoPurchaseAmt, manualLottoCount);
         resultView.printLottoCount(lottoGame.getAutoCount(), manualLottoCount);
 
@@ -50,19 +50,27 @@ public class LottoGameController {
         return inputView.getManualLottoCount();
     }
 
-    private List<Lotto> getManualLottoNumber(int manualLottoCount) {
+    private List<Lotto> getManualLottos(int manualLottoCount) {
         inputView.getManualLottoNumberPrint();
         List<Lotto> manualLottos = new ArrayList<>();
         for (int i = 0; i < manualLottoCount; i++) {
-            String manualNumbers = inputView.getManualLottoNumber();
-            List<String> numberStr = Arrays.asList(manualNumbers.trim().replaceAll("\\s", "").split(","));
-            List<Integer> numbers = numberStr.stream()
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
-            Lotto manualLotto = new Lotto(new LottoNumber(numbers));
-            manualLottos.add(manualLotto);
+            List<Integer> mannualLottoNumbers = getMannualLottoNumbers();
+            generateManualLotto(mannualLottoNumbers, manualLottos);
         }
         return manualLottos;
+    }
+
+    private void generateManualLotto(List<Integer> mannualLottoNumbers, List<Lotto> manualLottos) {
+        Lotto manualLotto = new Lotto(new LottoNumber(mannualLottoNumbers));
+        manualLottos.add(manualLotto);
+    }
+
+    private List<Integer> getMannualLottoNumbers() {
+        String manualNumbers = inputView.getManualLottoNumbers();
+        List<String> numberStr = Arrays.asList(manualNumbers.trim().replaceAll("\\s", "").split(","));
+        return numberStr.stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
     private List<Integer> getWinnerNumber() {

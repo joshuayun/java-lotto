@@ -33,6 +33,5 @@ public class ResultView {
         rateOfReturn = Math.floor(rateOfReturn * 100.0) / 100.0;
 
         System.out.println("총 수익률은 "+ rateOfReturn + "입니다.(기준이 1이기 때문에 결과적으로 손해라는 의미임)");
-
     }
 }

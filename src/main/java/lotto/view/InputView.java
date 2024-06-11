@@ -15,7 +15,7 @@ public class InputView {
         return Integer.parseInt(scanner.nextLine());
     }
 
-    public String getManualLottoNumber() {
+    public String getManualLottoNumbers() {
         return scanner.nextLine();
     }
 
