@@ -11,5 +11,4 @@ public class Lotto {
     public LottoNumber getNumber() {
         return number;
     }
-
 }

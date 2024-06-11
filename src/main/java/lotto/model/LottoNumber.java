@@ -25,7 +25,6 @@ public class LottoNumber {
         this.lottoNumber = lottoNumber;
     }
 
-
     public List<Integer> getLottoNumber() {
         return lottoNumber;
     }

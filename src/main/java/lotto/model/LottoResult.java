@@ -16,14 +16,12 @@ public enum LottoResult {
         this.reward = reward;
         this.matched = matched;
     }
-
     public int getReward() {
         return reward;
     }
     public String getMatched() {
         return matched;
     }
-
     public void plusCount() {
         this.count++;
     }

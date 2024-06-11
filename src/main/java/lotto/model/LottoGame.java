@@ -28,6 +28,4 @@ public class LottoGame {
     public int getAutoCount() {
         return autoCount;
     }
-
-
 }

@@ -24,8 +24,8 @@ public class Winning {
         List<Integer> winningNumbers = winnerLotto.getWinnerNumbers();
         int bonusNumber = winnerLotto.getBonusNumber();
 
-        for (Integer number : userNumbers) {
-            if (winningNumbers.contains(number)) {
+        for (Integer lottoNumber : userNumbers) {
+            if (winningNumbers.contains(lottoNumber)) {
                 matchCount++;
             }
         }
