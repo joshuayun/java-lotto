@@ -32,8 +32,8 @@ public class LottoGameController {
 
     private static void extractWinners(List<Lotto> lottos, List<Integer> winningNumbers, int bonusNumber) {
         for (Lotto lotto : lottos) {
-            WinningLotto winningLotto = new WinningLotto(winningNumbers, bonusNumber, lotto);
-            winningLotto.compareNumbers();
+            WinningLotto winningLotto = new WinningLotto(winningNumbers, bonusNumber);
+            winningLotto.resultPrize(lotto);
         }
     }
 

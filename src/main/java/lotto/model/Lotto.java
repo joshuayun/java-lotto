@@ -17,4 +17,10 @@ public class Lotto {
     public boolean contains(int number) {
         return lottoNumber.getNumbers().contains(number);
     }
+
+    public int matchedCount(List<Integer> winningNumbers) {
+        return (int) lottoNumber.getNumbers().stream()
+                .filter(winningNumbers::contains)
+                .count();
+    }
 }

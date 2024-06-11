@@ -22,7 +22,7 @@ public class ResultView {
         int totalReward = 0;
         for (LottoResult lottoResult : LottoResult.values()) {
             if (lottoResult.getReward() != 0) {
-                String matched = lottoResult.getMatched();
+                String matched = lottoResult.getMention();
                 int count = lottoResult.getCount();
                 int reward = lottoResult.getReward();
                 totalReward += reward * count;
