@@ -1,14 +1,16 @@
 package lotto.model;
 
 
-public class Lotto {
-    private final LottoNumber number;
+import java.util.List;
 
-    public Lotto(LottoNumber number) {
-        this.number = number;
+public class Lotto {
+    private final LottoNumber lottoNumber;
+
+    public Lotto(LottoNumber lottoNumber) {
+        this.lottoNumber = lottoNumber;
     }
 
-    public LottoNumber getNumber() {
-        return number;
+    public List<Integer> getLottoNumber() {
+        return lottoNumber.getNumbers();
     }
 }

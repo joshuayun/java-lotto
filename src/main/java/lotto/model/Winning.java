@@ -15,28 +15,22 @@ public class Winning {
         this.lotto = lotto;
     }
     public void compareNumbers() {
-        int matchCount = 0;
-        boolean bonusMatch = false;
-
-        List<Integer> userNumbers = lotto.getNumber().getLottoNumber();
+        List<Integer> userNumbers = lotto.getLottoNumber();
         List<Integer> winningNumbers = winnerLotto.getWinnerNumbers();
+
         int bonusNumber = winnerLotto.getBonusNumber();
-
-        for (Integer lottoNumber : userNumbers) {
-            if (winningNumbers.contains(lottoNumber)) {
-                matchCount++;
-            }
-        }
-
-        if (userNumbers.contains(bonusNumber)) {
-            bonusMatch = true;
-        }
-
-        LottoResult lottoResult = determineResult(matchCount, bonusMatch);
-        lottoResult.plusCount();
+        int matchCount = getMatchCount(userNumbers, winningNumbers);
+        boolean bonusMatch = userNumbers.contains(bonusNumber);
+        determineResult(matchCount, bonusMatch);
     }
 
-    private LottoResult determineResult(int matchCount, boolean bonusMatch) {
+    private static int getMatchCount(List<Integer> userNumbers, List<Integer> winningNumbers) {
+        return (int) userNumbers.stream()
+                .filter(winningNumbers::contains)
+                .count();
+    }
+
+    private void determineResult(int matchCount, boolean bonusMatch) {
         Map<String, LottoResult> resultMap = new HashMap<>();
         resultMap.put("6,false", LottoResult.FIRST_PRIZE);
         resultMap.put("5,true", LottoResult.SECOND_PRIZE);
@@ -45,7 +39,7 @@ public class Winning {
         resultMap.put("3,false", LottoResult.FIFTH_PRIZE);
 
         String key = matchCount + "," + bonusMatch;
-        return resultMap.getOrDefault(key, LottoResult.NO_PRIZE);
+        resultMap.getOrDefault(key, LottoResult.NO_PRIZE).plusCount();
     }
 
 }

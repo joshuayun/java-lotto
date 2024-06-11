@@ -50,7 +50,7 @@ public class LottoGameController {
         inputView.getManualLottoNumberPrint();
         List<Lotto> manualLottos = new ArrayList<>();
         for (int i = 0; i < manualLottoCount; i++) {
-            List<Integer> mannualLottoNumbers = getMannualLottoNumbers();
+            List<Integer> mannualLottoNumbers = getManualLottoNumbers();
             generateManualLotto(mannualLottoNumbers, manualLottos);
         }
         return manualLottos;
@@ -61,9 +61,9 @@ public class LottoGameController {
         manualLottos.add(manualLotto);
     }
 
-    private List<Integer> getMannualLottoNumbers() {
+    private List<Integer> getManualLottoNumbers() {
         String manualNumbers = inputView.getManualLottoNumbers();
-        List<String> numberStr = Arrays.asList(manualNumbers.trim().replaceAll("\\s", "").split(","));
+        List<String> numberStr = seperateComma(manualNumbers);
         return numberStr.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
@@ -71,14 +71,18 @@ public class LottoGameController {
 
     private List<Integer> getWinnerNumber() {
         String winnerNumber = inputView.getWinnerNumber();
-        List<String> winners = Arrays.asList(winnerNumber.trim().replaceAll("\\s", "").split(","));
+        List<String> winners = seperateComma(winnerNumber);
         return winners.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
     }
-
+    private static List<String> seperateComma(String input) {
+        return Arrays.asList(input.trim().replaceAll("\\s", "").split(","));
+    }
     private int getBonusWinnerNumber() {
         return inputView.getBonusWinnerNumber();
     }
+
+
 }

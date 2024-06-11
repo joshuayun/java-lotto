@@ -8,12 +8,12 @@ import java.util.List;
 public class ResultView {
 
     public void printLottoCount(int autoCount, int manualCount) {
-        System.out.println("수동으로"+manualCount+" 장, 자동으로"+autoCount+" 장 구매했습니다.");
+        System.out.println("수동으로 "+manualCount+"장, 자동으로 "+autoCount+"장 구매했습니다.");
     }
 
     public void printLottos(List<Lotto> lottos) {
         for (Lotto lotto : lottos) {
-            System.out.println(lotto.getNumber().getLottoNumber());
+            System.out.println(lotto.getLottoNumber());
         }
         System.out.println();
     }

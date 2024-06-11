@@ -11,14 +11,14 @@ class LottoNumberTest {
     @Test
     void checkLottoSize() {
         LottoNumber lottoNumber = new LottoNumber();
-        int actual = lottoNumber.getLottoNumber().size();
+        int actual = lottoNumber.getNumbers().size();
         assertThat(actual).isEqualTo(6);
     }
 
     @Test
     void checkLottoNumberRange() {
         LottoNumber lottoNumber = new LottoNumber();
-        List<Integer> lottoDigits =  lottoNumber.getLottoNumber();
+        List<Integer> lottoDigits =  lottoNumber.getNumbers();
         boolean actual = checkRangeNumber(lottoDigits);
         assertThat(actual).isTrue();
     }
@@ -35,8 +35,7 @@ class LottoNumberTest {
     @Test
     void checkLottoDuplicateNumber() {
         LottoNumber lottoNumber = new LottoNumber();
-        List<Integer> lottoDigits =  lottoNumber.getLottoNumber();
-        //중복제거를 위한 HashSet
+        List<Integer> lottoDigits =  lottoNumber.getNumbers();
         int actual = new HashSet<>(lottoDigits).size();
         assertThat(actual).isEqualTo(lottoDigits.size());
     }

@@ -15,21 +15,21 @@ public class LottoNumber {
 
     private static final int MAXIMIM_LOTTO_DIGIT = 6;
 
-    private final List<Integer> lottoNumber;
+    private final List<Integer> numbers;
 
     public LottoNumber() {
-        this.lottoNumber = generateLottoNumbers();
+        this.numbers = generateNumbers();
     }
 
-    public LottoNumber(List<Integer> lottoNumber) {
-        this.lottoNumber = lottoNumber;
+    public LottoNumber(List<Integer> numbers) {
+        this.numbers = numbers;
     }
 
-    public List<Integer> getLottoNumber() {
-        return lottoNumber;
+    public List<Integer> getNumbers() {
+        return numbers;
     }
 
-    public static List<Integer> generateLottoNumbers() {
+    public static List<Integer> generateNumbers() {
         return shuffle().subList(0, MAXIMIM_LOTTO_DIGIT)
                 .stream()
                 .sorted()
