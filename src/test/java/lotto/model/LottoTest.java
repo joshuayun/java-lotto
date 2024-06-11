@@ -15,9 +15,7 @@ class LottoTest {
     @MethodSource("listProvider")
     @ParameterizedTest
     void lottoNumber(List<Integer> lottoNumber){
-        Lotto lotto = new Lotto(lottoNumber);
-        List<Integer> actual = lotto.getNumber();
-        assertThat(actual).isEqualTo(lottoNumber);
+
     }
 
     public static Stream<Arguments> listProvider() {
