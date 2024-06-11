@@ -38,7 +38,6 @@ public class Winning {
         lottoResult.plusCount();
     }
 
-    // 맞춘 번호와 보너스 매치를 기반으로 결과를 결정하는 메서드 (케이스문 사용하지 않음)
     private LottoResult determineResult(int matchCount, boolean bonusMatch) {
         Map<String, LottoResult> resultMap = new HashMap<>();
         resultMap.put("6,false", LottoResult.FIRST_PRIZE);
